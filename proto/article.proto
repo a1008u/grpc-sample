@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package article;
+
+message Article {
+    string no = 1;
+    string content = 2;
+}
+
+message ArticleRequest {
+    Article article = 1; // will not have a blog id
+}
+
+message ArticleResponse {
+    Article article = 1; // will have a blog id
+}
+
+service ArticleService {
+    rpc MkArticle (ArticleRequest) returns (ArticleResponse);
+}
